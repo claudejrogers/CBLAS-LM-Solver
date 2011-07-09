@@ -1,0 +1,227 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC38695E13C9052E00D0CA08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC38695D13C9052E00D0CA08 /* Foundation.framework */; };
+		DC38696113C9052E00D0CA08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC38696013C9052E00D0CA08 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DC38695713C9052E00D0CA08 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DC38695913C9052E00D0CA08 /* CblasCurveFit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CblasCurveFit; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC38695D13C9052E00D0CA08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC38696013C9052E00D0CA08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC38696313C9052E00D0CA08 /* CblasCurveFit-Prefix.pch */ = {isa = PBXFileReference; path = "CblasCurveFit-Prefix.pch"; sourceTree = "<group>"; };
+		DC38696413C9052E00D0CA08 /* CblasCurveFit.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CblasCurveFit.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC38695613C9052E00D0CA08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC38695E13C9052E00D0CA08 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC38694E13C9052E00D0CA08 = {
+			isa = PBXGroup;
+			children = (
+				DC38695F13C9052E00D0CA08 /* CblasCurveFit */,
+				DC38695C13C9052E00D0CA08 /* Frameworks */,
+				DC38695A13C9052E00D0CA08 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC38695A13C9052E00D0CA08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC38695913C9052E00D0CA08 /* CblasCurveFit */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC38695C13C9052E00D0CA08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC38695D13C9052E00D0CA08 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC38695F13C9052E00D0CA08 /* CblasCurveFit */ = {
+			isa = PBXGroup;
+			children = (
+				DC38696013C9052E00D0CA08 /* main.m */,
+				DC38696413C9052E00D0CA08 /* CblasCurveFit.1 */,
+				DC38696213C9052E00D0CA08 /* Supporting Files */,
+			);
+			path = CblasCurveFit;
+			sourceTree = "<group>";
+		};
+		DC38696213C9052E00D0CA08 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC38696313C9052E00D0CA08 /* CblasCurveFit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC38695813C9052E00D0CA08 /* CblasCurveFit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC38696713C9052E00D0CA08 /* Build configuration list for PBXNativeTarget "CblasCurveFit" */;
+			buildPhases = (
+				DC38695513C9052E00D0CA08 /* Sources */,
+				DC38695613C9052E00D0CA08 /* Frameworks */,
+				DC38695713C9052E00D0CA08 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CblasCurveFit;
+			productName = CblasCurveFit;
+			productReference = DC38695913C9052E00D0CA08 /* CblasCurveFit */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC38695013C9052E00D0CA08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "California Institute of Technology";
+			};
+			buildConfigurationList = DC38695313C9052E00D0CA08 /* Build configuration list for PBXProject "CblasCurveFit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC38694E13C9052E00D0CA08;
+			productRefGroup = DC38695A13C9052E00D0CA08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC38695813C9052E00D0CA08 /* CblasCurveFit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC38695513C9052E00D0CA08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC38696113C9052E00D0CA08 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC38696513C9052E00D0CA08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DC38696613C9052E00D0CA08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DC38696813C9052E00D0CA08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CblasCurveFit/CblasCurveFit-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC38696913C9052E00D0CA08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CblasCurveFit/CblasCurveFit-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC38695313C9052E00D0CA08 /* Build configuration list for PBXProject "CblasCurveFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC38696513C9052E00D0CA08 /* Debug */,
+				DC38696613C9052E00D0CA08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC38696713C9052E00D0CA08 /* Build configuration list for PBXNativeTarget "CblasCurveFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC38696813C9052E00D0CA08 /* Debug */,
+				DC38696913C9052E00D0CA08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC38695013C9052E00D0CA08 /* Project object */;
+}
