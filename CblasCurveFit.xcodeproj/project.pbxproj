@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DC38695E13C9052E00D0CA08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC38695D13C9052E00D0CA08 /* Foundation.framework */; };
 		DC38696113C9052E00D0CA08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC38696013C9052E00D0CA08 /* main.m */; };
+		DC38696F13C9062D00D0CA08 /* CblasLMSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DC38696E13C9062D00D0CA08 /* CblasLMSolver.m */; };
+		DC38698013C96CFE00D0CA08 /* lmsolver_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = DC38697E13C96CFE00D0CA08 /* lmsolver_functions.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +29,12 @@
 		DC38695913C9052E00D0CA08 /* CblasCurveFit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CblasCurveFit; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC38695D13C9052E00D0CA08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC38696013C9052E00D0CA08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DC38696313C9052E00D0CA08 /* CblasCurveFit-Prefix.pch */ = {isa = PBXFileReference; path = "CblasCurveFit-Prefix.pch"; sourceTree = "<group>"; };
+		DC38696313C9052E00D0CA08 /* CblasCurveFit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CblasCurveFit-Prefix.pch"; sourceTree = "<group>"; };
 		DC38696413C9052E00D0CA08 /* CblasCurveFit.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CblasCurveFit.1; sourceTree = "<group>"; };
+		DC38696D13C9062D00D0CA08 /* CblasLMSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CblasLMSolver.h; path = CblasCurveFit.xcodeproj/CblasLMSolver.h; sourceTree = SOURCE_ROOT; };
+		DC38696E13C9062D00D0CA08 /* CblasLMSolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CblasLMSolver.m; path = CblasCurveFit.xcodeproj/CblasLMSolver.m; sourceTree = SOURCE_ROOT; };
+		DC38697E13C96CFE00D0CA08 /* lmsolver_functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lmsolver_functions.c; sourceTree = "<group>"; };
+		DC38697F13C96CFE00D0CA08 /* lmsolver_functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lmsolver_functions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,10 @@
 		DC38695F13C9052E00D0CA08 /* CblasCurveFit */ = {
 			isa = PBXGroup;
 			children = (
+				DC38696D13C9062D00D0CA08 /* CblasLMSolver.h */,
+				DC38696E13C9062D00D0CA08 /* CblasLMSolver.m */,
+				DC38697E13C96CFE00D0CA08 /* lmsolver_functions.c */,
+				DC38697F13C96CFE00D0CA08 /* lmsolver_functions.h */,
 				DC38696013C9052E00D0CA08 /* main.m */,
 				DC38696413C9052E00D0CA08 /* CblasCurveFit.1 */,
 				DC38696213C9052E00D0CA08 /* Supporting Files */,
@@ -137,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC38696113C9052E00D0CA08 /* main.m in Sources */,
+				DC38696F13C9062D00D0CA08 /* CblasLMSolver.m in Sources */,
+				DC38698013C96CFE00D0CA08 /* lmsolver_functions.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +196,10 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CblasCurveFit/CblasCurveFit-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-framework",
+					accelerate,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -197,6 +213,10 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CblasCurveFit/CblasCurveFit-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-framework",
+					accelerate,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
