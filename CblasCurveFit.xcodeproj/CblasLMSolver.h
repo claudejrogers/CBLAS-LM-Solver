@@ -14,7 +14,6 @@ enum Model {
     mm
 };
 
-
 @interface CblasLMSolver : NSObject {
     enum Model  model;
     int         varlen;

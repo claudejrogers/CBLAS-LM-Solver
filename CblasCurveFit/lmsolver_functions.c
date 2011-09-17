@@ -25,6 +25,7 @@ void linalg_solve(double *A, int N, double *g, double *h)
     n = lda = ldb = N;
     nrhs = 1;
     
+    // clapack expects column major arrays
     for (i = 0; i < N; i++) {
         h[i] = g[i];
         for (j = 0; j < N; j++) {
@@ -90,6 +91,7 @@ void solve_for_h (double *h, double *a, double *g, double mu, int N)
     na  = (double *) malloc(dl * sizeof(double));
     ng  = (double *) malloc(N * sizeof(double));
     
+    // multiply identity matrix by mu
     for (i = 0; i < N; i++) {
         for (j = 0; j < N; j++) {
             if (i == j) {
@@ -105,6 +107,7 @@ void solve_for_h (double *h, double *a, double *g, double mu, int N)
     for (i = 0; i < N; i++) 
         ng[i] = -g[i];
     
+    // solve (A + muI)h = -g for h
     linalg_solve(na, N, ng, h);
     
     free((void *) muI);
