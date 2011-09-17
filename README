@@ -1,0 +1,2 @@
+An implementation of the Levenberg-Marquardt algorithm using the cblas 
+library included in the Accelerate framework.
