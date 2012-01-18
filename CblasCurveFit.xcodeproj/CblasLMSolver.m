@@ -45,13 +45,14 @@
         yvals = [[NSMutableArray alloc] init];
         for (NSString *line in lines) {
             columns = [line componentsSeparatedByString:@"\t"];
-            tempX = [strToNum numberFromString:[columns objectAtIndex:0]];
-            tempY = [strToNum numberFromString:[columns objectAtIndex:1]];
-            [xvals addObject:tempX];
-            [yvals addObject:tempY];
+            if ([columns count] == 2) {
+                tempX = [strToNum numberFromString:[columns objectAtIndex:0]];
+                tempY = [strToNum numberFromString:[columns objectAtIndex:1]];
+                [xvals addObject:tempX];
+                [yvals addObject:tempY];
+            }
         }
         datalen = (int)[xvals count];
-        varlen = 3;
         model = mdl;
         switch (model) {
             case boltzmann:
@@ -66,6 +67,7 @@
                 break;
             case mm:
                 varlen = 2;
+                break;
             default:
                 NSLog(@"varlen fail.");
                 exit(1);
@@ -315,7 +317,7 @@
         }
         printf("iter %2d: var = ", k);
         for (i = 0; i < varlen; i++) {
-            printf(" %f", var[i]);
+            printf(" %12f", var[i]);
         }
         printf(", |f(x)| = %g\n", cblas_dnrm2(varlen, f, 1));
     }
