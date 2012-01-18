@@ -10,8 +10,13 @@
 #include "lmsolver_functions.h"
 
 enum Model {
+    boltzmann,
+    expdecay,
+    gaussian,
+    hill,
     ic50,
-    mm
+    mm,
+    modsin
 };
 
 @interface CblasLMSolver : NSObject {

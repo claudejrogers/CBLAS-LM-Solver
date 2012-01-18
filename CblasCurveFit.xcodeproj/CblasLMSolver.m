@@ -52,7 +52,25 @@
         }
         datalen = (int)[xvals count];
         varlen = 3;
-        model = ic50;
+        model = mdl;
+        switch (model) {
+            case boltzmann:
+            case gaussian:
+                varlen = 4;
+                break;
+            case expdecay:
+            case hill:
+            case ic50:
+            case modsin:
+                varlen = 3;
+                break;
+            case mm:
+                varlen = 2;
+            default:
+                NSLog(@"varlen fail.");
+                exit(1);
+                break;
+        }
         
         var   = (double *) malloc(sizeof(double) * varlen);
         param = (double *) malloc(sizeof(double) * varlen);
@@ -86,11 +104,28 @@
     for (i = 0; i < datalen; i++) {
         double xi = x[i];
         switch (model) {
+            case boltzmann:
+                m[i] = var[0] + ((var[1] - var[0]) /
+                                 (1 + exp((var[2] - xi)/var[3])));
+                break;
+            case expdecay:
+                m[i] = var[0] + var[1] * exp(-var[2] * xi);
+                break;
+            case gaussian:
+                m[i] = var[0] + var[1] * exp(-(xi - var[2]) * (xi - var[2]) /
+                                             (var[3] * var[3]));
+                break;
+            case hill:
+                m[i] = (var[0] / (1 + pow((var[1]/xi), var[2])));
+                break;
             case ic50:
                 m[i] = (1 - (var[0]/(1 + pow((var[1]/xi), var[2]))));
                 break;
             case mm:
                 m[i] = ((var[0] * xi) / (var[1] + xi));
+                break;
+            case modsin:
+                m[i] = var[0] * sin(M_PI * (xi - var[1]) / var[2]);
                 break;
             default:
                 exit(1);
@@ -105,6 +140,42 @@
     for (i = 0; i < datalen; i++) {
         double xi = x[i];
         switch (model) {
+            case boltzmann:
+                d1[i] = 1 - (1 / (1 + exp((var[2] - xi) / var[3])));
+                d2[i] = 1 / (1 + exp((var[2] - xi) / var[3]));
+                d3[i] = (((var[0] - var[1]) *
+                          exp((var[2] + xi) / var[3])) /
+                         (var[3] * pow((exp(var[2] / var[3]) +
+                                        exp(xi / var[3])), 2)));
+                d4[i] = (((var[1] - var[0]) * (var[2] - xi) *
+                         exp((var[2] - xi) / var[3])) / 
+                        (var[3] * var[3] *
+                         pow((exp((var[2] - xi) / var[3]) + 1), 2)));
+                break;
+            case expdecay:
+                d1[i] = 1.0;
+                d2[i] = exp(-var[2]*xi);
+                d3[i] = -xi*var[1]*exp(-var[2]*xi);
+                break;
+            case gaussian:
+                d1[i] = 1.0;
+                d2[i] = exp(-(xi - var[2])*(xi - var[2])/
+                            (var[3] * var[3]));
+                d3[i] = (2*((xi - var[2])/(var[3] * var[3]))*var[1]*
+                         exp(-(xi - var[2])*(xi - var[2])/(var[3] * var[3])));
+                d4[i] = (2*((xi - var[2])*(xi - var[2])/
+                            (var[3]*var[3]*var[3]))*var[1]*
+                         exp(-(xi - var[2])*(xi - var[2])/(var[3] * var[3])));
+                break;
+            case hill:
+                d1[i] = (1/(1 + pow((var[1]/xi), var[2])));
+                d2[i] = ((-var[0] * var[2] * pow(var[1], (var[2] - 1)) *
+                          pow(xi, var[2])) / 
+                         pow((pow(var[1], var[2]) + pow(xi, var[2])), 2));
+                d3[i] = ((var[0]*pow((var[1] * xi), var[2]) * 
+                          log(xi/var[1]))/pow((pow(var[1], var[2]) + 
+                                               pow(xi, var[2])), 2));
+                break;
             case ic50:
                 d1[i] = (-(1/(1 + pow((var[1]/xi), var[2]))));
                 d2[i] = ((var[0] * var[2] * pow((var[1]/xi), (var[2] - 1))) / 
@@ -116,6 +187,13 @@
             case mm:
                 d1[i] = (xi / (var[1] + xi));
                 d2[i] = (-(var[0] * xi) / pow((var[1] + xi), 2.0));
+                break;
+            case modsin:
+                d1[i] = sin(M_PI * (xi - var[1]) / var[2]);
+                d2[i] = (-var[0] * M_PI * 
+                         cos(M_PI * (xi - var[1]) / var[2])) / var[2];
+                d3[i] = ((var[0] * M_PI * (var[1] - xi) *
+                          cos(M_PI * (xi - var[1]) / var[2])) / pow(var[2], 2));
                 break;
             default:
                 exit(2);
@@ -143,7 +221,17 @@
     l = 3 * datalen;
     for (i = 0; i < datalen; i++, j++, k++, l++) {
         switch (model) {
+            case boltzmann:
+            case gaussian:
+                jac[i] = -d1[i];
+                jac[j] = -d2[i];
+                jac[k] = -d3[i];
+                jac[l] = -d4[i];
+                break;
+            case expdecay:
+            case hill:
             case ic50:
+            case modsin:
                 jac[i] = -d1[i];
                 jac[j] = -d2[i];
                 jac[k] = -d3[i];
@@ -225,7 +313,7 @@
             mu *= v;
             v *= 2;
         }
-        printf("iter %d: var = ", k);
+        printf("iter %2d: var = ", k);
         for (i = 0; i < varlen; i++) {
             printf(" %f", var[i]);
         }

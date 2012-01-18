@@ -122,6 +122,7 @@
 		DC38695013C9052E00D0CA08 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "California Institute of Technology";
 			};
 			buildConfigurationList = DC38695313C9052E00D0CA08 /* Build configuration list for PBXProject "CblasCurveFit" */;
@@ -240,6 +241,7 @@
 				DC38696913C9052E00D0CA08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
