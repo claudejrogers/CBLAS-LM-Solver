@@ -17,7 +17,7 @@ void linalg_solve (double *A, int N, double *g, double *h);
 /*
  * Calculates rho
  * fvect and newfvect are vectors of length data
- * h and g are vectors of lenght vars
+ * h and g are vectors of length vars
  * mu is a scalar
  */
 double get_rho (double *fvect, double *newfvect, int vars, int data, 
