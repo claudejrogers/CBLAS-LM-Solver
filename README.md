@@ -134,3 +134,5 @@ if ([modelName isEqualToString:@"boltzmann"]) {
 ```
 
 * Edit `usage` function in `main.m`.
+
+* **NOTE**: if your function has more than four variables to solve for, you will need to do more work, such as allocating additional arrays, then freeing them later.
