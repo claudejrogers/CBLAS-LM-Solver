@@ -4,13 +4,13 @@ An implementation of the Levenberg-Marquardt algorithm using the cblas library i
 
 ## Currently supported functions
 
-boltzmann - Boltzmann sigmoid
-expdecay  - Exponential decay
-gaussian  - Gaussian function
-hill      - Hill equation
-ic50      - Dose response
-mm        - Michaelis-Menten
-modsin    - Sine wave
+* boltzmann - Boltzmann sigmoid
+* expdecay  - Exponential decay
+* gaussian  - Gaussian function
+* hill      - Hill equation
+* ic50      - Dose response
+* mm        - Michaelis-Menten
+* modsin    - Sine wave
 
 
 ## Adding new functions
