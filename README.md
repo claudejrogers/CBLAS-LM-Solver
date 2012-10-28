@@ -18,11 +18,11 @@ modsin    - Sine wave
 This program can be extended to accommodate more functions than those currently included.
 Say you want to add the following function:
 
-![model](images/model.png)
+![model](https://raw.github.com/claudejrogers/CBLAS-LM-Solver/master/images/model.png)
 
 Where
 
-![params](images/params.png)
+![params](https://raw.github.com/claudejrogers/CBLAS-LM-Solver/master/images/params.png)
 
 The goal of the program is to find values for **x** that minimize the sum of the square residuals between the data and the model.
 
@@ -79,7 +79,7 @@ Note that the **x** vector of the equation above is represented as the array `va
 
 * Compute the partial derivatives of M with respect to each variable in `var`.
 
-![derivatives](images/derivatives.png)
+![derivatives](https://raw.github.com/claudejrogers/CBLAS-LM-Solver/master/images/derivatives.png)
 
 * Edit the `switch` statement in `derivatives` method in `CblasLMSolver.m`:
 
