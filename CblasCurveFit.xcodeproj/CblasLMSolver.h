@@ -36,8 +36,8 @@ enum Model {
 }
 
 - (id)initWithFileAtPath:(NSString *)filePath 
-                   model:(enum Model) mdl 
-                andGuess: (NSArray *)varInit;
+                   model:(enum Model)mdl 
+                andGuess:(NSArray *)varInit;
 - (void)equation;
 - (void)derivatives;
 - (void)get_f:(double *)fvect;

@@ -17,7 +17,7 @@
 @implementation CblasLMSolver
 
 - (id) initWithFileAtPath:(NSString *)filePath 
-                    model:(enum Model) mdl 
+                    model:(enum Model)mdl 
                  andGuess:(NSArray *)varInit
 {
     self = [super init];
